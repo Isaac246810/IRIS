@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IRIS PAY - Premium</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Splash Screen -->
+  <div id="splash" class="screen active">
+    <div class="logo metallic-shine">IP</div>
+    <h1>IRIS PAY</h1>
+    <p class="tagline">Smart. Secure. Seamless.</p>
+  </div>
+
+  <!-- Login Screen -->
+  <div id="login" class="screen hidden">
+    <h2>Login to IRIS PAY</h2>
+    <input type="text" id="loginPhone" placeholder="Phone Number" />
+    <input type="password" id="loginPassword" placeholder="Password" />
+    <button id="loginBtn" class="primary-btn metallic-shine">Login</button>
+    <p class="signup-note">New user? <span id="signupLink">Sign up</span></p>
+  </div>
+
+  <!-- OTP Screen -->
+  <div id="otp" class="screen hidden">
+    <h2>Verify your phone</h2>
+    <p class="otp-info">Enter the 6-digit code sent to your phone</p>
+    <div class="otp-inputs">
+      <input maxlength="1" class="otp-box" />
+      <input maxlength="1" class="otp-box" />
+      <input maxlength="1" class="otp-box" />
+      <input maxlength="1" class="otp-box" />
+      <input maxlength="1" class="otp-box" />
+      <input maxlength="1" class="otp-box" />
+    </div>
+    <div class="otp-options">
+      <span id="resendOTP">Resend OTP</span>
+      <span id="soundToggle" class="sound-icon">🔈</span>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="dashboard" class="screen hidden">
+    <header class="metallic-header">
+      <h1>IRIS PAY</h1>
+    </header>
+
+    <div id="walletSection" class="section active">
+      <div class="balance-card metallic-shine">
+        <h3>Wallet Balance</h3>
+        <h1 id="balance">₦120,000.00</h1>
+      </div>
+      <button id="sendMoneyBtn" class="primary-btn metallic-shine">Send Money</button>
+      <button id="exportCsv" class="secondary-btn">Download History (CSV)</button>
+      <h2>Recent Transactions</h2>
+      <div id="transactions"></div>
+    </div>
+
+    <div id="cardSection" class="section hidden">
+      <h2>Your Cards</h2>
+      <p>Coming soon...</p>
+    </div>
+
+    <div id="moreSection" class="section hidden">
+      <h2>More</h2>
+      <ul class="more-list">
+        <li id="irisAssistant">💬 IRIS Assistant Support</li>
+        <li>
+          📞 Merchant Customer Service –
+          <a href="https://wa.me/2348147449565" target="_blank">08147449565</a>
+        </li>
+      </ul>
+    </div>
+
+    <nav class="bottom-nav metallic-reflect">
+      <button id="walletNav" class="nav-btn active">Wallet</button>
+      <button id="cardNav" class="nav-btn">Card</button>
+      <button id="moreNav" class="nav-btn">More</button>
+    </nav>
+  </div>
+
+  <!-- Send Money Modal -->
+  <div id="transferModal" class="modal hidden">
+    <div class="modal-content metallic-border">
+      <h2>Send Money</h2>
+      <input type="text" id="recipientName" placeholder="Recipient Name" />
+      <input type="number" id="amount" placeholder="Amount (₦)" />
+      <input type="text" id="note" placeholder="Note (optional)" />
+      <button id="confirmSend" class="primary-btn metallic-shine">Send</button>
+      <button id="closeModal" class="secondary-btn">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Transaction Details Page -->
+  <div id="transactionDetails" class="screen hidden">
+    <header class="metallic-header">
+      <button id="backToWallet" class="back-btn">← Back</button>
+      <h2>Transaction Details</h2>
+    </header>
+    <div class="details-body">
+      <p><strong>Recipient:</strong> <span id="tdRecipient"></span></p>
+      <p><strong>Amount:</strong> <span id="tdAmount"></span></p>
+      <p><strong>Date & Time:</strong> <span id="tdDate"></span></p>
+      <p><strong>Note:</strong> <span id="tdNote"></span></p>
+      <p><strong>Status:</strong> <span id="tdStatus" class="status-success">Success</span></p>
+    </div>
+  </div>
+
+
+<!-- Success Modal -->
+  <div id="successModal" class="modal hidden">
+    <div class="modal-content">
+      <div class="checkmark"></div>
+      <h3>Account Verified Successfully</h3>
+    </div>
+  </div>
+
+  <audio id="successSound" src="assets/success.mp3" preload="auto"></audio>
+  <audio id="errorSound" src="assets/error.mp3" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
